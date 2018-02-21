@@ -1,0 +1,44 @@
+<div id='play-div'></div>
+
+<form id="transform-form">
+    <p>
+        <label for="input-transform-translate">transform-translate:</label>
+        <input id="input-transform-translate" type="number" value="1">
+    </p>
+    <p>
+        <label for="input-transform-rotate">transform-rotate:</label>
+        <input id="input-transform-rotate" type="number" value="1">
+    </p>
+    <p>
+        <label for="input-transform-skew">transform-skew:</label>
+        <input id="input-transform-skew" type="number" value="1">
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+
+<script>
+    const transform_form = document.getElementById('transform-form')
+    const play_div = document.getElementById('play-div')
+
+    const input_transform_translate = document.getElementById('input-transform-translate')
+    const input_transform_rotate = document.getElementById('input-transform-rotate')
+    const input_transform_skew = document.getElementById('input-transform-skew')
+
+    transform_form.onsubmit = function(e) {
+        e.preventDefault()
+        const transformTranslate = input_transform_translate.value
+        const transformRotate = input_transform_rotate.value
+        const transformSkew = input_transform_skew.value
+
+        play_div.style.width = '50px'
+        play_div.style.height = '50px'
+        play_div.style.background = 'blue'
+        play_div.style.transform = `translate(${transformTranslate}px)`
+        play_div.style.transform += `rotate(${transformRotate}deg)`
+        play_div.style.transform += `skewX(${transformSkew}deg)`
+
+        console.log(transformTranslate, transformRotate)
+    }
+</script>
